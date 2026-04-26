@@ -1,0 +1,406 @@
+
+============================================================
+FEATURE SET: set_1, Predictors: 17
+============================================================
+
+             Model                                                                              Best Params  Validation Accuracy  Test Accuracy  Validation MCC  Test MCC
+          LightGBM                             {'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 100}             0.878724       0.874376        0.426725  0.406350
+      RandomForest {'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 6, 'n_estimators': 150}             0.878513       0.876765        0.412829  0.402572
+LogisticRegression                                            {'C': 0.1, 'penalty': 'l2', 'solver': 'saga'}             0.774241       0.768004        0.400126  0.392399
+        NaiveBayes                                                                 {'var_smoothing': 1e-09}             0.770447       0.767020        0.381001  0.373734
+
+Classification Reports:
+
+
+--- RandomForest ---
+              precision    recall  f1-score   support
+
+           0     0.6337    0.3382    0.4410      2046
+           1     0.8970    0.9672    0.9307     12187
+
+    accuracy                         0.8768     14233
+   macro avg     0.7653    0.6527    0.6859     14233
+weighted avg     0.8591    0.8768    0.8604     14233
+
+
+--- LightGBM ---
+              precision    recall  f1-score   support
+
+           0     0.6032    0.3685    0.4575      2046
+           1     0.9005    0.9593    0.9290     12187
+
+    accuracy                         0.8744     14233
+   macro avg     0.7518    0.6639    0.6932     14233
+weighted avg     0.8578    0.8744    0.8612     14233
+
+
+--- LogisticRegression ---
+              precision    recall  f1-score   support
+
+           0     0.3535    0.7405    0.4785      2046
+           1     0.9466    0.7726    0.8508     12187
+
+    accuracy                         0.7680     14233
+   macro avg     0.6500    0.7565    0.6647     14233
+weighted avg     0.8614    0.7680    0.7973     14233
+
+
+--- NaiveBayes ---
+              precision    recall  f1-score   support
+
+           0     0.3476    0.7077    0.4662      2046
+           1     0.9406    0.7770    0.8510     12187
+
+    accuracy                         0.7670     14233
+   macro avg     0.6441    0.7423    0.6586     14233
+weighted avg     0.8554    0.7670    0.7957     14233
+
+
+
+============================================================
+FEATURE SET: set_2, Predictors: 13
+============================================================
+
+             Model                                                                           Best Params  Validation Accuracy  Test Accuracy  Validation MCC  Test MCC
+          LightGBM                          {'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 100}             0.877248       0.874657        0.419951  0.407765
+      RandomForest {'max_depth': 12, 'max_features': 'sqrt', 'min_samples_split': 4, 'n_estimators': 50}             0.872119       0.868756        0.427186  0.411072
+LogisticRegression                                    {'C': 0.1, 'penalty': 'l2', 'solver': 'liblinear'}             0.774241       0.769831        0.399869  0.397041
+        NaiveBayes                                                              {'var_smoothing': 1e-09}             0.771290       0.764983        0.380011  0.368530
+
+Classification Reports:
+
+
+--- RandomForest ---
+              precision    recall  f1-score   support
+
+           0     0.5578    0.4198    0.4791      2046
+           1     0.9065    0.9441    0.9249     12187
+
+    accuracy                         0.8688     14233
+   macro avg     0.7321    0.6820    0.7020     14233
+weighted avg     0.8564    0.8688    0.8608     14233
+
+
+--- LightGBM ---
+              precision    recall  f1-score   support
+
+           0     0.6048    0.3695    0.4587      2046
+           1     0.9006    0.9595    0.9291     12187
+
+    accuracy                         0.8747     14233
+   macro avg     0.7527    0.6645    0.6939     14233
+weighted avg     0.8581    0.8747    0.8615     14233
+
+
+--- LogisticRegression ---
+              precision    recall  f1-score   support
+
+           0     0.3562    0.7449    0.4820      2046
+           1     0.9476    0.7740    0.8520     12187
+
+    accuracy                         0.7698     14233
+   macro avg     0.6519    0.7594    0.6670     14233
+weighted avg     0.8626    0.7698    0.7988     14233
+
+
+--- NaiveBayes ---
+              precision    recall  f1-score   support
+
+           0     0.3444    0.7028    0.4623      2046
+           1     0.9396    0.7754    0.8496     12187
+
+    accuracy                         0.7650     14233
+   macro avg     0.6420    0.7391    0.6560     14233
+weighted avg     0.8540    0.7650    0.7940     14233
+
+
+
+============================================================
+FEATURE SET: set_3, Predictors: 5
+============================================================
+
+             Model                                                                            Best Params  Validation Accuracy  Test Accuracy  Validation MCC  Test MCC
+      RandomForest {'max_depth': 12, 'max_features': 'sqrt', 'min_samples_split': 4, 'n_estimators': 150}             0.870925       0.870863        0.404883  0.404883
+          LightGBM                             {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 50}             0.867060       0.863838        0.421520  0.407324
+LogisticRegression                                       {'C': 1, 'penalty': 'l1', 'solver': 'liblinear'}             0.775646       0.769831        0.394225  0.387467
+        NaiveBayes                                                               {'var_smoothing': 1e-09}             0.774452       0.761821        0.382833  0.365071
+
+Classification Reports:
+
+
+--- RandomForest ---
+              precision    recall  f1-score   support
+
+           0     0.5745    0.3920    0.4660      2046
+           1     0.9031    0.9513    0.9266     12187
+
+    accuracy                         0.8709     14233
+   macro avg     0.7388    0.6716    0.6963     14233
+weighted avg     0.8559    0.8709    0.8603     14233
+
+
+--- LightGBM ---
+              precision    recall  f1-score   support
+
+           0     0.5318    0.4418    0.4826      2046
+           1     0.9089    0.9347    0.9216     12187
+
+    accuracy                         0.8638     14233
+   macro avg     0.7203    0.6883    0.7021     14233
+weighted avg     0.8547    0.8638    0.8585     14233
+
+
+--- LogisticRegression ---
+              precision    recall  f1-score   support
+
+           0     0.3537    0.7268    0.4758      2046
+           1     0.9443    0.7771    0.8525     12187
+
+    accuracy                         0.7698     14233
+   macro avg     0.6490    0.7519    0.6642     14233
+weighted avg     0.8594    0.7698    0.7984     14233
+
+
+--- NaiveBayes ---
+              precision    recall  f1-score   support
+
+           0     0.3409    0.7038    0.4593      2046
+           1     0.9395    0.7716    0.8473     12187
+
+    accuracy                         0.7618     14233
+   macro avg     0.6402    0.7377    0.6533     14233
+weighted avg     0.8534    0.7618    0.7915     14233
+
+
+
+============================================================
+FEATURE SET: set_4, Predictors: 6
+============================================================
+
+             Model                                                                              Best Params  Validation Accuracy  Test Accuracy  Validation MCC  Test MCC
+          LightGBM                              {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 150}             0.856029       0.854423        0.086608  0.067180
+      RandomForest {'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 6, 'n_estimators': 150}             0.850829       0.848591        0.101660  0.089750
+        NaiveBayes                                                                 {'var_smoothing': 1e-09}             0.674044       0.672803        0.180950  0.173474
+LogisticRegression                                      {'C': 0.01, 'penalty': 'l1', 'solver': 'liblinear'}             0.641793       0.638446        0.176250  0.160750
+
+Classification Reports:
+
+
+--- RandomForest ---
+              precision    recall  f1-score   support
+
+           0     0.3429    0.0582    0.0995      2046
+           1     0.8612    0.9813    0.9173     12187
+
+    accuracy                         0.8486     14233
+   macro avg     0.6021    0.5197    0.5084     14233
+weighted avg     0.7867    0.8486    0.7998     14233
+
+
+--- LightGBM ---
+              precision    recall  f1-score   support
+
+           0     0.3952    0.0239    0.0452      2046
+           1     0.8585    0.9938    0.9212     12187
+
+    accuracy                         0.8544     14233
+   macro avg     0.6268    0.5089    0.4832     14233
+weighted avg     0.7919    0.8544    0.7953     14233
+
+
+--- LogisticRegression ---
+              precision    recall  f1-score   support
+
+           0     0.2154    0.5733    0.3131      2046
+           1     0.9006    0.6494    0.7546     12187
+
+    accuracy                         0.6384     14233
+   macro avg     0.5580    0.6113    0.5339     14233
+weighted avg     0.8021    0.6384    0.6912     14233
+
+
+--- NaiveBayes ---
+              precision    recall  f1-score   support
+
+           0     0.2289    0.5386    0.3212      2046
+           1     0.8998    0.6953    0.7844     12187
+
+    accuracy                         0.6728     14233
+   macro avg     0.5643    0.6170    0.5528     14233
+weighted avg     0.8033    0.6728    0.7179     14233
+
+
+
+============================================================
+FEATURE SET: set_5, Predictors: 5
+============================================================
+
+             Model                                                                            Best Params  Validation Accuracy  Test Accuracy  Validation MCC  Test MCC
+          LightGBM                           {'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 100}             0.872049       0.869529        0.412232  0.401525
+      RandomForest {'max_depth': 12, 'max_features': 'sqrt', 'min_samples_split': 6, 'n_estimators': 150}             0.870363       0.869177        0.407303  0.399969
+LogisticRegression                                          {'C': 0.1, 'penalty': 'l1', 'solver': 'saga'}             0.778598       0.771587        0.399650  0.392567
+        NaiveBayes                                                               {'var_smoothing': 1e-09}             0.769955       0.761681        0.389709  0.377197
+
+Classification Reports:
+
+
+--- RandomForest ---
+              precision    recall  f1-score   support
+
+           0     0.5646    0.3930    0.4634      2046
+           1     0.9030    0.9491    0.9255     12187
+
+    accuracy                         0.8692     14233
+   macro avg     0.7338    0.6710    0.6945     14233
+weighted avg     0.8544    0.8692    0.8591     14233
+
+
+--- LightGBM ---
+              precision    recall  f1-score   support
+
+           0     0.5664    0.3939    0.4647      2046
+           1     0.9032    0.9494    0.9257     12187
+
+    accuracy                         0.8695     14233
+   macro avg     0.7348    0.6717    0.6952     14233
+weighted avg     0.8548    0.8695    0.8594     14233
+
+
+--- LogisticRegression ---
+              precision    recall  f1-score   support
+
+           0     0.3566    0.7322    0.4796      2046
+           1     0.9454    0.7782    0.8537     12187
+
+    accuracy                         0.7716     14233
+   macro avg     0.6510    0.7552    0.6666     14233
+weighted avg     0.8607    0.7716    0.7999     14233
+
+
+--- NaiveBayes ---
+              precision    recall  f1-score   support
+
+           0     0.3442    0.7268    0.4672      2046
+           1     0.9436    0.7675    0.8465     12187
+
+    accuracy                         0.7617     14233
+   macro avg     0.6439    0.7472    0.6568     14233
+weighted avg     0.8574    0.7617    0.7920     14233
+
+
+
+============================================================
+FEATURE SET: set_6, Predictors: 4
+============================================================
+
+             Model                                                                            Best Params  Validation Accuracy  Test Accuracy  Validation MCC  Test MCC
+      RandomForest {'max_depth': 12, 'max_features': 'sqrt', 'min_samples_split': 6, 'n_estimators': 150}             0.871627       0.870091        0.406281  0.402856
+          LightGBM                           {'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 150}             0.871487       0.871215        0.397465  0.401827
+LogisticRegression                                    {'C': 0.01, 'penalty': 'l2', 'solver': 'liblinear'}             0.786818       0.780089        0.407124  0.395707
+        NaiveBayes                                                               {'var_smoothing': 1e-09}             0.763280       0.753882        0.385708  0.370794
+
+Classification Reports:
+
+
+--- RandomForest ---
+              precision    recall  f1-score   support
+
+           0     0.5698    0.3930    0.4651      2046
+           1     0.9031    0.9502    0.9261     12187
+
+    accuracy                         0.8701     14233
+   macro avg     0.7365    0.6716    0.6956     14233
+weighted avg     0.8552    0.8701    0.8598     14233
+
+
+--- LightGBM ---
+              precision    recall  f1-score   support
+
+           0     0.5787    0.3827    0.4607      2046
+           1     0.9019    0.9532    0.9269     12187
+
+    accuracy                         0.8712     14233
+   macro avg     0.7403    0.6680    0.6938     14233
+weighted avg     0.8555    0.8712    0.8599     14233
+
+
+--- LogisticRegression ---
+              precision    recall  f1-score   support
+
+           0     0.3651    0.7170    0.4838      2046
+           1     0.9433    0.7907    0.8603     12187
+
+    accuracy                         0.7801     14233
+   macro avg     0.6542    0.7538    0.6721     14233
+weighted avg     0.8602    0.7801    0.8062     14233
+
+
+--- NaiveBayes ---
+              precision    recall  f1-score   support
+
+           0     0.3365    0.7326    0.4612      2046
+           1     0.9441    0.7574    0.8405     12187
+
+    accuracy                         0.7539     14233
+   macro avg     0.6403    0.7450    0.6508     14233
+weighted avg     0.8567    0.7539    0.7860     14233
+
+
+
+============================================================
+FEATURE SET: set_7, Predictors: 3
+============================================================
+
+             Model                                                                          Best Params  Validation Accuracy  Test Accuracy  Validation MCC  Test MCC
+          LightGBM                           {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 50}             0.865163       0.863697        0.412379  0.406240
+      RandomForest {'max_depth': 8, 'max_features': 'sqrt', 'min_samples_split': 2, 'n_estimators': 50}             0.864179       0.859692        0.423953  0.408141
+LogisticRegression                                       {'C': 0.01, 'penalty': 'l1', 'solver': 'saga'}             0.784359       0.776505        0.401981  0.391987
+        NaiveBayes                                                             {'var_smoothing': 1e-09}             0.784359       0.776505        0.401981  0.391987
+
+Classification Reports:
+
+
+--- RandomForest ---
+              precision    recall  f1-score   support
+
+           0     0.5132    0.4663    0.4886      2046
+           1     0.9118    0.9257    0.9187     12187
+
+    accuracy                         0.8597     14233
+   macro avg     0.7125    0.6960    0.7036     14233
+weighted avg     0.8545    0.8597    0.8569     14233
+
+
+--- LightGBM ---
+              precision    recall  f1-score   support
+
+           0     0.5312    0.4404    0.4816      2046
+           1     0.9087    0.9348    0.9215     12187
+
+    accuracy                         0.8637     14233
+   macro avg     0.7200    0.6876    0.7015     14233
+weighted avg     0.8544    0.8637    0.8583     14233
+
+
+--- LogisticRegression ---
+              precision    recall  f1-score   support
+
+           0     0.3608    0.7190    0.4805      2046
+           1     0.9434    0.7862    0.8576     12187
+
+    accuracy                         0.7765     14233
+   macro avg     0.6521    0.7526    0.6691     14233
+weighted avg     0.8596    0.7765    0.8034     14233
+
+
+--- NaiveBayes ---
+              precision    recall  f1-score   support
+
+           0     0.3608    0.7190    0.4805      2046
+           1     0.9434    0.7862    0.8576     12187
+
+    accuracy                         0.7765     14233
+   macro avg     0.6521    0.7526    0.6691     14233
+weighted avg     0.8596    0.7765    0.8034     14233
+
+
