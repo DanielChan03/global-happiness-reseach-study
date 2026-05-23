@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import inspect
+from sklearn.base import clone
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score, matthews_corrcoef
 
@@ -81,7 +82,7 @@ def train_ensemble_models(X_train, y_train, X_val, y_val, X_test, y_test, models
 
         else:
             # No tuning → pure baseline
-            model = m["estimator"]
+            model = clone(m["estimator"])
             model.fit(X_train, y_train)
             best_params = None
 
