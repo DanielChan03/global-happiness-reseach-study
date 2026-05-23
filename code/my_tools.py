@@ -6,7 +6,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score, matthews_corrcoef
 
 # model training function
-def train_ensemble_models(X_train, y_train, X_val, y_val, X_test, y_test, models):
+def train_ensemble_models(X_train, y_train, X_val, y_val, X_test, y_test, models, sort_by=None):
     """
     Train, tune, and evaluate ensemble models on preprocessed data.
 
@@ -18,8 +18,15 @@ def train_ensemble_models(X_train, y_train, X_val, y_val, X_test, y_test, models
         Each dict should contain:
             - 'name': str, model name
             - 'estimator': sklearn-compatible classifier
-            - 'param_grid': dict of hyperparameters for GridSearchCV
-
+            - 'param_grid'(optional): dict of hyperparameters for GridSearchCV
+    sort_by : sort the results by Validation Accuracy by default.
+        Modifiable:
+            "None" by default, 
+            "Validation Accuracy",
+            "Test Accuracy",
+            "Validation MCC",
+            "Test MCC"
+            
     Returns:
     --------
     results_df : pd.DataFrame
@@ -60,20 +67,29 @@ def train_ensemble_models(X_train, y_train, X_val, y_val, X_test, y_test, models
 
     for m in models:
         print(f"\nTraining {m['name']}...")
-        grid = GridSearchCV(
-            estimator=m['estimator'],
-            param_grid=m['param_grid'],
-            cv=5,
-            scoring='accuracy',
-            n_jobs=-1
-        )
-        grid.fit(X_train, y_train)
+        if "param_grid" in m and m["param_grid"] is not None:
+            grid = GridSearchCV(
+                estimator=m['estimator'],
+                param_grid=m['param_grid'],
+                cv=5,
+                scoring='accuracy',
+                n_jobs=-1
+            )
+            grid.fit(X_train, y_train)
+            model = grid.best_estimator_
+            best_params = grid.best_params_
+
+        else:
+            # No tuning → pure baseline
+            model = m["estimator"]
+            model.fit(X_train, y_train)
+            best_params = None
 
         # Evaluate
-        y_val_pred = grid.predict(X_val)
+        y_val_pred = model.predict(X_val)
         val_acc = accuracy_score(y_val, y_val_pred)
 
-        y_test_pred = grid.predict(X_test)
+        y_test_pred = model.predict(X_test)
         test_acc = accuracy_score(y_test, y_test_pred)
 
         y_val_mcc = matthews_corrcoef(y_val, y_val_pred)
@@ -81,7 +97,7 @@ def train_ensemble_models(X_train, y_train, X_val, y_val, X_test, y_test, models
 
         results.append({
             "Model": m["name"],
-            "Best Params": grid.best_params_,
+            "Best Params": best_params,
             "Validation Accuracy": val_acc,
             "Test Accuracy": test_acc,
             "Validation MCC": y_val_mcc,
@@ -89,9 +105,13 @@ def train_ensemble_models(X_train, y_train, X_val, y_val, X_test, y_test, models
         })
 
         best_models[m["name"]] = {
-            "model": grid.best_estimator_,
+            "model": model,
             "test_accuracy": test_acc
         }
 
-    results_df = pd.DataFrame(results).sort_values(by="Validation Accuracy", ascending=False)
+    results_df = pd.DataFrame(results)
+
+    if sort_by is not None:
+        results_df = results_df.sort_values(by=sort_by, ascending=False)
+
     return results_df, best_models
