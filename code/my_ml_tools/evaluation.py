@@ -136,3 +136,47 @@ def visualise_shap(
             )
 
         print(f"Completed SHAP visualisation for: {model_name}\n")
+
+
+
+def calculate_shap_weights(shap_values, feature_names):
+    """
+    Calculate normalized weights based on mean absolute SHAP values
+    for ALL features.
+
+    Returns:
+        dict: {feature: normalized_weight}
+              (sums to 1.0)
+    """
+
+    # -----------------------------
+    # Extract SHAP values safely
+    # -----------------------------
+    values = shap_values.values if hasattr(shap_values, "values") else shap_values
+
+    # -----------------------------
+    # Handle multiclass safely
+    # -----------------------------
+    if len(values.shape) == 3:
+        values = values[:, :, 1]  # class 1 (binary positive class)
+
+    # -----------------------------
+    # Mean absolute SHAP per feature
+    # -----------------------------
+    mean_abs_shap = np.abs(values).mean(axis=0)
+
+    # -----------------------------
+    # Normalize to weights
+    # -----------------------------
+    total = mean_abs_shap.sum()
+    weights = mean_abs_shap / total
+
+    # -----------------------------
+    # Convert to dictionary
+    # -----------------------------
+    weights_dict = {
+        feature: round(weight, 6)
+        for feature, weight in zip(feature_names, weights)
+    }
+
+    return weights_dict
