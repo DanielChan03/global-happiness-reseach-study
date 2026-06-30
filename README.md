@@ -36,7 +36,6 @@ The workflow focuses on:
 |-- notebooks/                       # full research workflow, ordered 01-08
 |-- publication/                     # publication manuscript PDF
 |-- report/                          # final project report PDF
-|-- research_papers/                 # related reference papers
 `-- src/my_ml_tools/                 # reusable helper functions
 ```
 
